@@ -1,0 +1,49 @@
+main {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+}
+
+/* Song & Song control */
+.song {
+  width: 60%;
+  text-align: center;
+}
+
+ul {
+  margin: 2rem 0rem;
+  list-style: none;
+  font-size: var(--size-heading);
+  display: flex;
+  justify-content: space-evenly;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Chat area */
+
+.chat {
+  width: 80%;
+  min-height: 60vh;
+  max-height: 60vh;
+  background-color: var(--bg-secondary);
+  border-radius: 2rem;
+  overflow-y: scroll;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1000px) {
+  main {
+    width: 90%;
+  }
+  .song {
+    width: 100%;
+  }
+  .chat {
+    width: 100%;
+  }
+}
