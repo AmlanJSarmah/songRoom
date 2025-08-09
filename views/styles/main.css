@@ -27,11 +27,65 @@ ul {
 
 .chat {
   width: 80%;
-  min-height: 60vh;
-  max-height: 60vh;
+  height: 60vh;
   background-color: var(--bg-secondary);
   border-radius: 2rem;
+  position: relative;
+}
+
+form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-textbox);
+  width: 95%;
+  border-radius: 2rem;
+  margin: 1rem auto;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  font-size: var(--size-content);
+  background-color: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+form button {
+  background-color: var(--green);
+  padding: 0.5rem;
+  border-radius: 100%;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--size-content);
+  outline: none;
+  border: none;
+}
+
+form input:focus {
+  outline: none;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.chat-window {
+  height: 85%;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.message {
+  margin: 1rem 5rem;
+  overflow-wrap: break-word;
 }
 
 /* Media Queries */
@@ -45,5 +99,11 @@ ul {
   }
   .chat {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .message {
+    margin: 1rem 3rem;
   }
 }

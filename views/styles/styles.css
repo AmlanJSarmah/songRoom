@@ -20,6 +20,7 @@ html {
   --size-nav: calc(1.5rem + 0.5vw);
   --size-content: calc(1rem + 0.5vw);
   --size-heading: calc(2rem + 1vw);
+  --size-small: calc(0.8rem + 0.5vw);
 }
 
 body {
@@ -27,6 +28,18 @@ body {
   background-color: var(--bg-primary);
   font-weight: 700;
   color: var(--text-primary);
+}
+
+.btn {
+  background-color: var(--green);
+  color: var(--text-primary);
+  border: none;
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--size-heading);
+  margin-top: 2rem;
 }
 
 .btn-exit {
@@ -45,6 +58,18 @@ h1 {
   font-size: var(--size-heading);
   font-weight: 700;
   color: var(--text-primary);
+}
+
+h2 {
+  font-size: var(--size-content);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: var(--size-small);
+  font-weight: 700;
+  color: var(--red);
 }
 
 /* ----------------------------------- */
