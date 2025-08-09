@@ -21,6 +21,7 @@ html {
   --size-content: calc(1rem + 0.5vw);
   --size-heading: calc(2rem + 1vw);
   --size-small: calc(0.8rem + 0.5vw);
+  --size-title: calc(4rem + 1vw);
 }
 
 body {
@@ -40,6 +41,7 @@ body {
   font-weight: 700;
   font-size: var(--size-heading);
   margin-top: 2rem;
+  user-select: none;
 }
 
 .btn-exit {
@@ -110,5 +112,6 @@ nav h2 {
     --size-nav: 5rem;
     --size-content: 3rem;
     --size-heading: 6rem;
+    --size-title: 8rem;
   }
 }

@@ -67,6 +67,7 @@ form button {
   font-size: var(--size-content);
   outline: none;
   border: none;
+  user-select: none;
 }
 
 form input:focus {
