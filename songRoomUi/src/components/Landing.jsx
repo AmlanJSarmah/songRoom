@@ -1,11 +1,19 @@
+import { Link } from "react-router-dom";
+
 export function Landing() {
   return (
     <main>
       <h1 id="title">Song Buddy</h1>
-      <div class="btn-container">
-        <button class="btn btn-land">Join Room</button>
-        <button class="btn btn-land">Create Room</button>
-        <button class="btn btn-land">Add Song to Library</button>
+      <div class="container">
+        <Link class="btn btn-land" to="/room">
+          Join Room
+        </Link>
+        <Link class="btn btn-land" to="/room">
+          Create Room
+        </Link>
+        <Link class="btn btn-land" to="/library">
+          Add Song to Library
+        </Link>
       </div>
     </main>
   );

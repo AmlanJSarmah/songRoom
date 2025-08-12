@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
 export function Nav() {
   return (
     <nav>
       {/* <!-- Appears only when we are in a room --> */}
-      <button class="btn-exit">End Room</button>
+      <Link class="btn-exit" to="/">
+        End Room
+      </Link>
       {/* <!-- Appears always --> */}
       <h2>songBuddy</h2>
     </nav>

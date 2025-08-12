@@ -16,7 +16,7 @@ main {
   margin-bottom: 5rem;
 }
 
-.btn-container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +28,22 @@ main {
   width: 40%;
 }
 
+.lib {
+  width: 50%;
+  background-color: var(--green);
+  color: var(--text-primary);
+  border: none;
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--size-content);
+  margin-top: 2rem;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 500px) {
   #title {
     font-size: 3rem;
@@ -36,10 +52,18 @@ main {
   .btn-land {
     width: 80%;
   }
+
+  .lib {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .btn-land {
     width: 60%;
+  }
+
+  .lib {
+    width: 70%;
   }
 }
