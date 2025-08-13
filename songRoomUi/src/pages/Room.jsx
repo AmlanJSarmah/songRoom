@@ -8,7 +8,7 @@ export function Room() {
       <Nav />
       <Song />
       <Chat />
-      <button class="btn">Browse Library</button>
+      <button className="btn">Browse Library</button>
     </main>
   );
 }

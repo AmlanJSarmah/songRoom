@@ -4,14 +4,14 @@ export function SongLibrary() {
   return (
     <main>
       <h1 id="title">Song Buddy</h1>
-      <div class="container">
-        <Link class="lib" to="/room">
+      <div className="container">
+        <Link className="lib" to="/room">
           Fleetwood Mac : The Chain
         </Link>
-        <Link class="lib" to="/room">
+        <Link className="lib" to="/room">
           Pink Floyd: Comfortably Numb
         </Link>
-        <Link class="lib" to="/room">
+        <Link className="lib" to="/room">
           Led Zepplin: Kashmir
         </Link>
       </div>

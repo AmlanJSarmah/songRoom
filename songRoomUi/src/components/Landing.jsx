@@ -4,14 +4,14 @@ export function Landing() {
   return (
     <main>
       <h1 id="title">Song Buddy</h1>
-      <div class="container">
-        <Link class="btn btn-land" to="/room">
+      <div className="container">
+        <Link className="btn btn-land" to="/room">
           Join Room
         </Link>
-        <Link class="btn btn-land" to="/room">
+        <Link className="btn btn-land" to="/room">
           Create Room
         </Link>
-        <Link class="btn btn-land" to="/library">
+        <Link className="btn btn-land" to="/library">
           Add Song to Library
         </Link>
       </div>

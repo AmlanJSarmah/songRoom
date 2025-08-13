@@ -4,7 +4,7 @@ export function Nav() {
   return (
     <nav>
       {/* <!-- Appears only when we are in a room --> */}
-      <Link class="btn-exit" to="/">
+      <Link className="btn-exit" to="/">
         End Room
       </Link>
       {/* <!-- Appears always --> */}
