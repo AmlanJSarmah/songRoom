@@ -1,11 +1,14 @@
 import { Nav } from "../components/Nav";
-import { Landing } from "../components/Landing";
+import { HomeActions } from "../components/HomeActions";
 
 export function Home() {
   return (
     <>
-      <Nav />
-      <Landing />
+      <Nav isLoggedIn={false} isInRoom={false} />
+      <main>
+        <h1 id="title">songBuddy</h1>
+        <HomeActions />
+      </main>
     </>
   );
 }

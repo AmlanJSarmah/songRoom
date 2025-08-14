@@ -1,14 +1,19 @@
 import { Song } from "../components/Song";
 import { Nav } from "../components/Nav";
 import { Chat } from "../components/Chat";
+import { Link } from "react-router-dom";
 
 export function Room() {
   return (
-    <main>
-      <Nav />
-      <Song />
-      <Chat />
-      <button className="btn">Browse Library</button>
-    </main>
+    <>
+      <Nav isInRoom={true} isLoggedIn={true} />
+      <main>
+        <Song />
+        <Chat />
+        <Link to="/library" className="btn">
+          Browse Library
+        </Link>
+      </main>
+    </>
   );
 }
