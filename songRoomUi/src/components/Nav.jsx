@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useAuth } from "../context/Auth";
 
-export function Nav({ isInRoom, isLoggedIn }) {
+export function Nav() {
+  const location = useLocation();
+  const { isInRoom, isLoggedIn } = useAuth();
   return (
     <nav>
       {/* If user in Room */}
@@ -12,8 +16,8 @@ export function Nav({ isInRoom, isLoggedIn }) {
         <></>
       )}
 
-      {/* If User Not logged in */}
-      {!isLoggedIn ? (
+      {/* If User Not logged in, or not in /login */}
+      {!isLoggedIn && !location.pathname.startsWith("/login") ? (
         <Link className="btn-login" to="/login">
           Login
         </Link>

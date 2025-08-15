@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export function Room() {
   return (
     <>
-      <Nav isInRoom={true} isLoggedIn={true} />
+      <Nav />
       <main>
         <Song />
         <Chat />

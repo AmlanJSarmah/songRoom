@@ -4,7 +4,7 @@ import { Form } from "../components/LoginSignUpForm";
 export function SignUp() {
   return (
     <>
-      <Nav isInRoom={false} isLoggedIn={false} />
+      <Nav />
       <main>
         <h1 id="title">songBuddy</h1>
         <Form></Form>

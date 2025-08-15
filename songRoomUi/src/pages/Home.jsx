@@ -4,7 +4,7 @@ import { HomeActions } from "../components/HomeActions";
 export function Home() {
   return (
     <>
-      <Nav isLoggedIn={false} isInRoom={false} />
+      <Nav />
       <main>
         <h1 id="title">songBuddy</h1>
         <HomeActions />
