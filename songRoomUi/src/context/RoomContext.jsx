@@ -7,6 +7,12 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "JOIN":
+      return { ...state, isInRoom: true };
+    case "EXIT":
+      return { ...state, isInRoom: false };
+    default:
+      return { ...state };
   }
 };
 
@@ -15,7 +21,9 @@ const RoomContext = createContext();
 export function RoomProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <RoomContext.Provider value={{ ...state }}>{children}</RoomContext.Provider>
+    <RoomContext.Provider value={{ ...state, roomDispatch: dispatch }}>
+      {children}
+    </RoomContext.Provider>
   );
 }
 

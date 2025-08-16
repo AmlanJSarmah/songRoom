@@ -6,6 +6,10 @@ import { SignUp } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import { RoomProvider } from "./context/RoomContext";
+import {
+  NotLoginProtectedRoutes,
+  LoginProtectedRoutes,
+} from "./routes/ProtectedRoutes";
 
 function App() {
   return (
@@ -14,10 +18,38 @@ function App() {
         <RoomProvider>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/room" element={<Room />}></Route>
-            <Route path="/library" element={<Library />}></Route>
-            <Route path="/sign-up" element={<SignUp />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route
+              path="/room"
+              element={
+                <NotLoginProtectedRoutes>
+                  <Room />
+                </NotLoginProtectedRoutes>
+              }
+            ></Route>
+            <Route
+              path="/library"
+              element={
+                <NotLoginProtectedRoutes>
+                  <Library />
+                </NotLoginProtectedRoutes>
+              }
+            ></Route>
+            <Route
+              path="/sign-up"
+              element={
+                <LoginProtectedRoutes>
+                  <SignUp />
+                </LoginProtectedRoutes>
+              }
+            ></Route>
+            <Route
+              path="/login"
+              element={
+                <LoginProtectedRoutes>
+                  <Login />
+                </LoginProtectedRoutes>
+              }
+            ></Route>
           </Routes>
         </RoomProvider>
       </AuthProvider>

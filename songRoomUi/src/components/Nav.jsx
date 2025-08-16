@@ -1,21 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useRoom } from "../context/RoomContext";
 
 export function Nav() {
-  const location = useLocation();
   const { isLoggedIn } = useAuth();
-  const { isInRoom } = useRoom();
+  const { isInRoom, roomDispatch } = useRoom();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleRoomExit = () => {
+    roomDispatch({ type: "EXIT" });
+    navigate("/");
+  };
+
   return (
     <nav>
       {/* If user in Room */}
       {isInRoom ? (
-        <Link className="btn-exit" to="/">
-          End Room
-        </Link>
+        <>
+          <button className="btn-exit" onClick={handleRoomExit}>
+            End Room
+          </button>
+          <h2>songBuddy</h2>
+        </>
       ) : (
-        <></>
+        <>
+          <h2 onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+            songBuddy
+          </h2>
+        </>
       )}
 
       {/* If User Not logged in, or not in /login */}
@@ -27,7 +42,14 @@ export function Nav() {
         <></>
       )}
 
-      <h2>songBuddy</h2>
+      {/* If in login page */}
+      {!isLoggedIn && location.pathname.startsWith("/login") ? (
+        <Link className="btn-login" to="/sign-up">
+          Sign Up
+        </Link>
+      ) : (
+        <></>
+      )}
     </nav>
   );
 }

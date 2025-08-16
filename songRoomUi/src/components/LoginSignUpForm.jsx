@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Form() {
+export function Form({ handleSubmit }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleChange = (event) => {
@@ -9,12 +9,6 @@ export function Form() {
     } else {
       setFormData({ ...formData, password: event.target.value });
     }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted with data:", formData);
-    setFormData({ username: "", password: "" });
   };
 
   return (

@@ -7,6 +7,10 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "LOGIN":
+      return { ...state, isLoggedIn: true };
+    default:
+      return { ...state };
   }
 };
 
@@ -15,7 +19,9 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AuthContext.Provider value={{ ...state }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ ...state, dispatch: dispatch }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
