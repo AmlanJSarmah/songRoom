@@ -1,8 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
 
 const initialState = {
-  isLoggedIn: false,
   isInRoom: false,
+  roomCreator: null,
 };
 
 const reducer = (state, action) => {
@@ -10,13 +10,13 @@ const reducer = (state, action) => {
   }
 };
 
-const AuthContext = createContext();
+const RoomContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+export function RoomProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AuthContext.Provider value={{ ...state }}>{children}</AuthContext.Provider>
+    <RoomContext.Provider value={{ ...state }}>{children}</RoomContext.Provider>
   );
-};
+}
 
-export const useAuth = () => useContext(AuthContext);
+export const useRoom = () => useContext(RoomContext);

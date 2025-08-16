@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useAuth } from "../context/Auth";
+import { useAuth } from "../context/AuthContext";
+import { useRoom } from "../context/RoomContext";
 
 export function Nav() {
   const location = useLocation();
-  const { isInRoom, isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
+  const { isInRoom } = useRoom();
   return (
     <nav>
       {/* If user in Room */}
