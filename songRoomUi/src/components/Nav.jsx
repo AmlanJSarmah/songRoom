@@ -5,23 +5,24 @@ import { useRoom } from "../context/RoomContext";
 
 export function Nav() {
   const { isLoggedIn } = useAuth();
-  const { isInRoom, roomDispatch } = useRoom();
+  const { handleExitRoom, isInRoom } = useRoom();
 
   const location = useLocation();
   const navigate = useNavigate();
-
-  const handleRoomExit = () => {
-    roomDispatch({ type: "EXIT" });
-    navigate("/");
-  };
 
   return (
     <nav>
       {/* If user in Room */}
       {isInRoom ? (
         <>
-          <button className="btn-exit" onClick={handleRoomExit}>
-            End Room
+          <button
+            className="btn-exit"
+            onClick={(e) => {
+              e.preventDefault();
+              handleExitRoom();
+            }}
+          >
+            Exit Room
           </button>
           <h2>songBuddy</h2>
         </>

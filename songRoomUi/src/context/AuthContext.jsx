@@ -1,5 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
 
+// Dummy user data
+export const userData = [
+  { username: "AJ", password: "ABC" },
+  { username: "Parie", password: "XYZ" },
+];
+
 const initialState = {
   isLoggedIn: false,
   user: null,
