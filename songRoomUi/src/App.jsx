@@ -6,9 +6,11 @@ import { SignUp } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import { RoomProvider } from "./context/RoomContext";
+import { JoinRoom } from "./pages/JoinRoom";
 import {
   NotLoginProtectedRoutes,
   LoginProtectedRoutes,
+  RoomProtectedRoutes,
 } from "./routes/ProtectedRoutes";
 
 function App() {
@@ -18,6 +20,16 @@ function App() {
         <RoomProvider>
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/join-room"
+              element={
+                <NotLoginProtectedRoutes>
+                  <RoomProtectedRoutes>
+                    <JoinRoom />
+                  </RoomProtectedRoutes>
+                </NotLoginProtectedRoutes>
+              }
+            ></Route>
             <Route
               path="/room"
               element={

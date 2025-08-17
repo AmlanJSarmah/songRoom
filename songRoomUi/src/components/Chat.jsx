@@ -1,8 +1,12 @@
 export function Chat() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="chat">
       {/* <!-- Message form --> */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Type your message here..." />
         <button type="submit">📩</button>
       </form>
