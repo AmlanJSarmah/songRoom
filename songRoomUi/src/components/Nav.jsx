@@ -4,8 +4,8 @@ import { useAuth } from "../context/AuthContext";
 import { useRoom } from "../context/RoomContext";
 
 export function Nav() {
-  const { isLoggedIn } = useAuth();
-  const { handleExitRoom, isInRoom } = useRoom();
+  const { isLoggedIn, user } = useAuth();
+  const { handleExitRoom, isInRoom, room } = useRoom();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export function Nav() {
               handleExitRoom();
             }}
           >
-            Exit Room
+            {room.creator === user.username ? "End Room" : "Exit Room"}
           </button>
           <h2>songBuddy</h2>
         </>

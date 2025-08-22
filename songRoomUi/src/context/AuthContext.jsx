@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Dummy user data
 export const userData = [
@@ -14,7 +15,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      return { ...state, isLoggedIn: true };
+      return { ...state, isLoggedIn: true, user: userData[0] };
     default:
       return { ...state };
   }
@@ -24,8 +25,15 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    dispatch({ type: "LOGIN" });
+    navigate("/");
+  };
+
   return (
-    <AuthContext.Provider value={{ ...state, dispatch: dispatch }}>
+    <AuthContext.Provider value={{ ...state, handleLogin: handleLogin }}>
       {children}
     </AuthContext.Provider>
   );
