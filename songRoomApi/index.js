@@ -2,12 +2,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+// Routes
+const userRoutes = require("./routes/userRoutes");
+
+// Setup
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", (req, res) => {
-  console.log(req.body);
-  res.status(200).send({ serverState: "running" });
+// Implement routes
+app.use(userRoutes);
+app.use((req, res) => {
+  res.status(404).send({ error404: true });
 });
 
 mongoose
