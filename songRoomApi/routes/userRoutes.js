@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/login", (req, res) => {
-  res.status(200).send({ server: "running" });
-});
+// Controllers
+const authController = require("../controllers/authController");
+
+// Routes
+router.post("/sign-up", authController.userSignUp);
+router.post("/login", authController.userLogIn);
 
 module.exports = router;
