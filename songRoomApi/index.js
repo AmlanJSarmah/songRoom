@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 // Routes
 const userRoutes = require("./routes/userRoutes");
+const roomRoutes = require("./routes/roomRoutes");
 
 // Setup
 const app = express();
@@ -20,6 +21,7 @@ app.use((req, res, next) => {
 
 // Implement routes
 app.use(userRoutes);
+app.use(roomRoutes);
 app.use((req, res) => {
   res.status(404).send({ error404: true });
 });

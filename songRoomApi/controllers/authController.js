@@ -32,7 +32,10 @@ exports.userLogIn = async (req, res) => {
     const appUser = await user.findOne({ username: userName });
     if (appUser) {
       const isAuth = await bcrypt.compare(req.body.password, appUser.password);
-      if (!isAuth) res.status(401).send({ res: "Wrong Password" });
+      if (!isAuth) {
+        res.status(401).send({ res: "Wrong Password" });
+        return;
+      }
       const token = jwt.sign(
         { username: appUser.username, is: appUser._id },
         JWT_SECRET,
