@@ -37,7 +37,7 @@ exports.userLogIn = async (req, res) => {
         return;
       }
       const token = jwt.sign(
-        { username: appUser.username, is: appUser._id },
+        { username: appUser.username, id: appUser._id },
         JWT_SECRET,
         { expiresIn: "1h" }
       );
