@@ -10,6 +10,10 @@ const roomSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  members: {
+    type: [mongoose.Schema.Types.ObjectId],
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("room", roomSchema);
